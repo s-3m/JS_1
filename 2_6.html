@@ -1,0 +1,41 @@
+<meta charset = 'utf-8'>
+<head>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict'
+		function tellUserSum(val) {
+			let lastSym = val.charAt(val.length - 1);
+			let preLastSym = val.charAt(val.length - 2);
+			if (preLastSym == '1') {
+				alert('Ваша сумма в ' + val + ' рублей успешно зачислена.');
+				return
+			};
+			switch (lastSym) {
+				case '0':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9':
+				alert('Ваша сумма в ' + val + ' рублей успешно зачислена.');
+				break;
+				case '1':
+				alert('Ваша сумма в ' + val + ' рубль успешно зачислена.');
+				break;
+				case '2':
+				case '3':
+				case '4':
+				alert('Ваша сумма в ' + val + ' рубля успешно зачислена.');
+				break;
+			}
+		};
+
+		let user_money = prompt('Сколько денег вы хотите положить в банк? : ');
+		tellUserSum(user_money);
+
+
+	</script>
+
+</body>
