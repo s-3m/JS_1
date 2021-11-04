@@ -1,0 +1,51 @@
+<meta charset = 'utf-8'>
+<head>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		'use strict'
+		function add (num1, num2) {
+			return num1 + num2;
+		};
+
+		function subtract (num1, num2) {
+			return num1 - num2;
+		};
+
+		function multiply (num1, num2) {
+			return num1 * num2;
+		};
+
+		function division (num1, num2) {
+			return num1 / num2;
+		};
+
+		function mathOperation (num1, num2, operation) {
+
+			switch (operation) {
+				case '+':
+				alert(add(num1, num2));
+				break;
+				case '-':
+				alert(subtract(num1, num2));
+				break;
+				case '*':
+				alert(multiply(num1, num2));
+				break;
+				case '/':
+				alert(division(num1, num2));
+				break;
+			};
+		};
+
+
+		let user_operation = prompt('Какую операцию выполняем? (+, -, *, /): ');
+		let user_num1 = Number(prompt('Введите первое число: '));
+		let user_num2 = Number(prompt('Введите второе число: '));
+
+		mathOperation(user_num1, user_num2, user_operation);
+
+	</script>
+
+</body>
