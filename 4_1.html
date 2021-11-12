@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+
+        class NumbersDigit {
+            constructor (units, tens, hundred) {
+                this.units = units;
+                this.tens = tens;
+                this.hundred = hundred;
+            };
+        };
+
+
+        function digitToObj (digit) {
+
+            if (digit <= 999 && digit > 0 && Number.isInteger(digit)) {
+                let hundred = Math.floor(digit / 100);
+                let units = digit % 10;
+                let tens = Math.floor((digit - (hundred * 100)) / 10);
+
+                const newObj = new NumbersDigit (units, tens, hundred);
+                return newObj;
+            };
+
+            if (+digit !== +digit) {
+                console.log('Введенное значение должно быть числом');
+            } else if (!Number.isInteger(digit)) {
+                console.log('Введенное число должно быть целым')
+            } else if (digit > 999 || digit < 0) {
+                console.log('Число должно быть в диапазоне от 0 до 999');
+            };
+
+            
+            const emptyObj = new NumbersDigit();
+            return emptyObj
+        
+            
+        };
+
+        let userAnswer = +prompt('Введите число от 0 до 999: ');
+
+        console.log(digitToObj(userAnswer));
+
+
+
+
+    </script>
+</body>
+</html>

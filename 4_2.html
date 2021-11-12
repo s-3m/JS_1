@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+
+        // В стиле es5
+
+        /*function Post (author, text, date) {
+            this.author = author;
+            this.date = date;
+            this.text = text;
+        };
+
+        Post.prototype.edit = function (newText) {
+            this.text = newText;
+        };
+
+        function AttachedPost (author, text, date) {
+            Post.call (this, author, text, date);
+            this.highlighted = false;
+        };
+
+        AttachedPost.prototype = Object.create(Post);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        };
+
+        const post1 = new Post ('Pushkin', 'Love you sweet', '25-09-1985');
+        console.log (post1.text);
+        post1.edit('Not now baby');
+        console.log (post1.text);
+
+        const AttPst = new AttachedPost ('Roman', 'zzz', '33-33-33');
+        console.log (AttPst.text, AttPst.highlighted);
+        AttPst.makeTextHighlighted();
+        console.log (AttPst.text, AttPst.highlighted); */
+
+        // В стиле es6
+
+        class Post {
+            constructor (author, text, date) {
+               this.author = author;
+               this.date = date;
+               this.text = text; 
+            };
+
+            edit (newText) {
+                this.text = newText;
+            };
+        };
+
+        class AttachedPost extends Post {
+            constructor(author, text, date) {
+                super(author, text, date);
+                this.highlighted = false;
+            };
+
+            makeTextHighlighted () {
+                this.highlighted = true;
+            };
+
+        };
+
+        const post1 = new Post ('Medvedev', 'We have no money, but you are holding on', '22.07.2018');
+        console.log (post1.text);
+        const AttPost = new AttachedPost ('old women', 'Its our president', '21.08.2020');
+        post1.edit ('comment was deleted');
+        console.log (post1.text);
+        console.log (AttPost.text, AttPost.highlighted);
+        AttPost.makeTextHighlighted();
+        console.log (AttPost.text, AttPost.highlighted);
+
+
+
+    </script>
+</body>
+</html>
